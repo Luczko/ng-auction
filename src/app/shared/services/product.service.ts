@@ -17,11 +17,13 @@ export interface Product {
 export class ProductService {
   constructor(private http: HttpClient) {}
   getAll(): Observable<Product[]> {
-    return this.http.get<Product[]>('/data/products.json');
+    return this.http.get<Product[]>('data/products.json');
   }
   getById(productId: number): Observable<Product> {
     return this.http
-      .get<Product[]>('/data/products.json')
-      .pipe(map((products) => products.find((p) => p.id === productId)));
+      .get<Product[]>('data/products.json')
+      .pipe(
+        map((products) => products.find((p) => p.id === productId) as Product)
+      );
   }
 }

@@ -7,10 +7,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { routes } from './app.routing';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    HomeModule,
     BrowserModule,
     MatButtonModule,
     MatIconModule,
@@ -18,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FlexLayoutModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent],
